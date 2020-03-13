@@ -1,0 +1,23 @@
+{
+  "name": "rest-api-playlist",
+  "version": "1.0.0",
+  "description": "Course files for the REST API tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strujilloc/rest-api-playlist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/strujilloc/rest-api-playlist/issues"
+  },
+  "homepage": "https://github.com/strujilloc/rest-api-playlist#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
