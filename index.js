@@ -1,13 +1,13 @@
 const express = require("express");
+const routes = require("./routes/api");
+const bodyParser = require("body-parser");
 
 // set up express app
 const app = express();
 
-//req = request res= respond
-app.get("/api", (req, res) => {
-  console.log("Get request");
-  res.send({ name: "Yoshi" });
-});
+app.use(bodyParser.json());
+//initialize routes
+app.use("/api", routes);
 
 // listen for requests process.env.port explain in video #4
 app.listen(process.env.PORT || 4000, () => {
