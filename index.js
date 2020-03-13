@@ -13,14 +13,17 @@ mongoose.connect("mongodb://localhost:27017/ninjago", {
   useCreateIndex: true,
   useFindAndModify: false
 });
-// first middleware evaluate body parser
+
+// middleware to handle static file (the front end)
+app.use(express.static("public"));
+// middleware that evaluate body parser
 
 app.use(bodyParser.json());
 
-//2nd middleware initialize routes
+// middleware initialize routes
 app.use("/api", routes);
 
-// 3rd middleware handling error
+//middleware handling error
 app.use((err, req, res, next) => {
   //console.log(err);
   res.status(422).send({ error: err.message });
