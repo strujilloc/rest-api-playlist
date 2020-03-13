@@ -13,7 +13,7 @@ router.post("/ninjas", (req, res, next) => {
   /* let ninja = new Ninja(req.body);
   ninja.save();
    */
-  // similar to above code, instead of save, create
+  // similar to code above, instead of save, create
   Ninja.create(req.body)
     .then(ninja => {
       res.send(ninja);
@@ -23,12 +23,18 @@ router.post("/ninjas", (req, res, next) => {
 
 // update a ninja in the db
 router.put("/ninjas/:id", (req, res, next) => {
-  res.send({ type: "PUT" });
+  Ninja.findByIdAndUpdate({ _id: req.params.id }, req.body).then(() => {
+    Ninja.findOne({ _id: req.params.id }).then(updatedNinja => {
+      res.send(updatedNinja);
+    });
+  });
 });
 
 // delete a ninja from the db
 router.delete("/ninjas/:id", (req, res, next) => {
-  res.send({ type: "DELETE" });
+  Ninja.findByIdAndDelete({ _id: req.params.id }).then(removedNinja => {
+    res.send(removedNinja);
+  });
 });
 
 module.exports = router;
