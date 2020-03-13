@@ -10,6 +10,7 @@ const app = express();
 mongoose.connect("mongodb://localhost:27017/ninjago", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true,
   useFindAndModify: false
 });
 // first middleware evaluate body parser
